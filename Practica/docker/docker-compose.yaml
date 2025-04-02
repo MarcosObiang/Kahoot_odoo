@@ -1,0 +1,65 @@
+
+services:
+
+
+#Odoo 17
+
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=myodoo
+      - PGDATA=/var/lib/postgresql/data/dbdata
+    ports:
+      - "5432:5432"
+    restart: always
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data/dbdata
+
+    networks:
+      - odoo_net
+
+  odoo_service:
+    image: odoo:17.0
+
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=myodoo
+      - PORT=5432
+   
+    volumes:
+      - odoo_filestore:/var/lib/odoo/filestore
+      - /home/marcos/Practicas_semana_2/Practica/addons:/mnt/extra-addons/
+      - /home/marcos/Practicas_semana_2/Practica/odoo_configuration/:/etc/odoo/
+
+    depends_on:
+      - db
+
+    networks:
+      - odoo_net
+
+
+
+
+
+
+networks:
+  odoo_net:
+
+
+
+volumes:
+    pgdata:
+    odoo_filestore:
+    pgdata-17:
+    odoo_filestore-17:
+    pgdata-18:
+    odoo_filestore-18:
+      
+      

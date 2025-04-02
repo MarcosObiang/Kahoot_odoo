@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<odoo>
+
+    <data>
+        <record id="survey_main_action_id" model="ir.actions.act_window">
+
+            <field name="name">Kahoot</field>
+            <field name="res_model">survey.survey</field>
+            <field name="view_mode">form</field>
+
+        </record>
+
+    </data>
+
+</odoo>

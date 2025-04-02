@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <data>
+        <record id="kahoot_survey_view_id" model="ir.ui.view">
+            <field name="name">kahoot_survey_form</field>
+            <field name="model">survey.survey</field>
+            <field name="inherit_id" ref="survey.survey_survey_view_form"></field>
+            <field name="arch" type="xml">
+            <form>
+             <xpath expr="//header" position="inside">
+              <button name="action_send_survey" string="Compaltan compaltaan" type="object" class="oe_highlight" invisible="not active"/>
+                </xpath>
+            
+            </form>
+               
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

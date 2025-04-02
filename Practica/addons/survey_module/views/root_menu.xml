@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <menuitem id="kahoot_survey_root_menu_id" name="Kahoot">
+
+            <menuitem id="kahoot_survey_action_menu" action="survey_main_action_id" />
+
+        </menuitem>
+
+    </data>
+
+</odoo>
