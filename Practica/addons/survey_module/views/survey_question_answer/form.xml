@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<odoo>
+<data>
+<record id="survey_question_answer_form_id" model="ir.ui.view">
+<field name="name">kahoot_question_answer_form</field>
+<field name="model"> survey.survey_question_form</field>
+</record>
+</data>
+</odoo>

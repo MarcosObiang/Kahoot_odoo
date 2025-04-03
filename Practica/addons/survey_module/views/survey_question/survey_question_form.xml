@@ -7,19 +7,22 @@
             <field name="model">survey.question</field>
             <field name="inherit_id" ref="survey.survey_question_form"></field>
             <field name="arch" type="xml">
+                <xpath expr="//field[@name='suggested_answer_ids']" position="before">
 
-                <form>
-                    <xpath expr="//field[@name='answer_datetime']" position='after'>
-                        <field name="answer_true_or_false" string="Correct Answer?"
-                            invisible=" question_type != 'true_or_false'" />
+                    <field name="answer_count" invisible="True"></field>
 
-                    </xpath>
+                </xpath>
+                <xpath expr="//field[@name='suggested_answer_ids']" position='attributes'>
+                    <attribute name="invisible">question_type not in ['simple_choice',
+                        'multiple_choice', 'matrix','true_or_false']</attribute>
+                    <attribute name="context">{'default_question_id':
+                        id,'question_type':question_type,'answer_count': answer_count} </attribute>
 
-                </form>
+
+                </xpath>
+
 
             </field>
-
-
         </record>
     </data>
 
