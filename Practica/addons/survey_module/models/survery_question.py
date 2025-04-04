@@ -1,4 +1,5 @@
 from odoo import models,api,fields
+from odoo.exceptions import ValidationError
 
 import logging
 
@@ -34,3 +35,16 @@ class KahootQuestion(models.Model):
             _logger.info(f"Pregunta {self.id} tiene {self.answer_count} respuestas sin guardar.")
         else:
             self.answer_count=0
+
+
+
+
+
+
+
+    @api.constrains('suggested_answer_ids')
+    def _check_answer_count(self):
+        # Validamos que no haya más de 2 registros en el campo One2many
+        for record in self:
+            if len(record.suggested_answer_ids) > 2:
+                raise ValidationError("No puedes agregar más de dos opciones en este campo de respuestas.")

@@ -16,7 +16,13 @@
     "views/root_menu.xml",
 ],
 
-"depends":["survey"],
+ 'assets': {
+        'web.assets_backend': [
+            '/survey_module/static/src/js/custom_one2many.js',
+        ],
+    },
+
+"depends":["survey","web","base"],
 "category": "Games",
 "installable": True,
 "application": True,
