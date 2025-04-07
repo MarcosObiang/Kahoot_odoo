@@ -13,6 +13,7 @@
     "views/survey/main_action.xml",
     "views/survey/survey_view.xml",
     "views/survey_question/survey_question_form.xml",
+    "views/survey_view/survey_question_view_template.xml",
     "views/root_menu.xml",
 ],
 
