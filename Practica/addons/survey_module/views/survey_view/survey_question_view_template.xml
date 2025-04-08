@@ -23,7 +23,7 @@
                 <div class="row g-2 o_survey_answer_wrapper o_survey_form_choice"
                     t-att-data-name="question.id"
                     t-att-data-is-skipped-question="is_skipped_question or None"
-                    data-question-type="simple_choice_radio">
+                    data-question-type="true_or_false">
                     <t t-set="item_idx" t-value="0" />
                     <t t-set="has_correct_answer"
                         t-value="scoring_display_correction and any(label.is_correct for label in question.suggested_answer_ids)" />

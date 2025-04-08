@@ -18,8 +18,11 @@
 ],
 
  'assets': {
-        'web.assets_backend': [
-            '/survey_module/static/src/js/custom_one2many.js',
+        'web.assets_frontend': [
+            'survey/static/src/js/survey_preload_image_mixin.js',
+            'survey/static/src/js/survey_image_zoomer.js',
+            'survey/static/src/js/survey_form.js',
+            'survey_module/static/src/js/survey_form_true_false.js',
         ],
     },
 

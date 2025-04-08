@@ -18,8 +18,7 @@
                     <attribute name="context">{'default_question_id':
                         id,'question_type':question_type,'answer_count': answer_count} </attribute>
                              <attribute name="widget">custom_one2many</attribute>
-
-                </xpath>
+</xpath>
 
 
 
