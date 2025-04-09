@@ -13,7 +13,6 @@
     "views/survey/main_action.xml",
     "views/survey/survey_view.xml",
     "views/survey_question/survey_question_form.xml",
-    "views/survey_view/survey_question_view_template.xml",
     "views/root_menu.xml",
 ],
 
@@ -23,6 +22,8 @@
             'survey/static/src/js/survey_image_zoomer.js',
             'survey/static/src/js/survey_form.js',
             'survey_module/static/src/js/survey_form_true_false.js',
+
+            
         ],
     },
 

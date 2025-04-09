@@ -9,17 +9,19 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='suggested_answer_ids']" position="before">
 
-                    <field name="answer_count" invisible="True"></field>
+                    <field name="answer_count" invisible="False"></field>
+                    <field name="answer_true_or_false" invisible="False"></field>
+
+                    
 
                 </xpath>
                 <xpath expr="//field[@name='suggested_answer_ids']" position='attributes'>
                     <attribute name="invisible">question_type not in ['simple_choice',
                         'multiple_choice', 'matrix','true_or_false']</attribute>
                     <attribute name="context">{'default_question_id':
-                        id,'question_type':question_type,'answer_count': answer_count} </attribute>
-                             <attribute name="widget">custom_one2many</attribute>
-</xpath>
-
+                        id,'question_type':question_type,'answer_count': answer_count,'answer_true_or_false':answer_true_or_false} </attribute>
+                    <attribute name="widget">custom_one2many</attribute>
+                </xpath>
 
 
             </field>
