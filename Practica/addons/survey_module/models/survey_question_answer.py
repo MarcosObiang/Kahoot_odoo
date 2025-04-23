@@ -5,6 +5,7 @@ import logging
 class SurveyQuestionAnswer(models.Model):
     _inherit = "survey.question.answer"
 
+   
     @api.model
     def default_get(self, fields_list):
         _logger = logging.getLogger(__name__)
@@ -39,4 +40,8 @@ class SurveyQuestionAnswer(models.Model):
 
         return res
     
+    @api.model
+    def compute_total_score(self):
 
+
+        self.answer_score=self.environment['survey.user_input_line'].compute_total_score()

@@ -8,9 +8,15 @@ class KahootQuestion(models.Model):
     _description="Kahoot question"
     answer_true_or_false=fields.Boolean("True or false")
     answer_count=fields.Integer("Answers count", default=0)
-
+    time_limit=fields.Integer("Time limit", default=0)
+    points=fields.Integer("Points", default=0)
+    bonus_per_second=fields.Float("Bonus per second", default=0)
  
 
+
+
+
+    
 
     @api.onchange("answer_true_or_false")
 

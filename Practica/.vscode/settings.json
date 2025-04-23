@@ -1,3 +1,4 @@
 {
-    "Odoo.selectedConfiguration": "1"
+    "Odoo.selectedConfiguration": "1",
+    "liveServer.settings.port": 5501
 }

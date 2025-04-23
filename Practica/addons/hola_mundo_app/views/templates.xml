@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="hola_mundo_template" name="Hola Mundo">
+        <t t-call="web.layout">
+            <div id="wrap" class="container">
+                <h1>¡Hola Mundo desde Odoo!</h1>
+                <p>Mensaje desde el backend (modelo): <t t-esc="mensaje_backend"/></p>
+                <div id="hola_mundo_app">
+                    </div>
+            </div>
+        </t>
+    </template>
+</odoo>
