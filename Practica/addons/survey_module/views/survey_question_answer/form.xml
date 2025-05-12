@@ -3,10 +3,18 @@
 
 
 <odoo>
-<data>
-<record id="survey_question_answer_form_id" model="ir.ui.view">
-<field name="name">kahoot_question_answer_form</field>
-<field name="model"> survey.survey_question_form</field>
-</record>
-</data>
+    <record id="view_survey_question_answer_form" model="ir.ui.view">
+        <field name="name">survey.question.answer.form</field>
+        <field name="model">survey.question.answer</field>
+        <field name="arch" type="xml">
+            <form string="Survey Answer">
+                <sheet>
+                    <group>
+                        <field name="question_id"/>
+                        <field name="value"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

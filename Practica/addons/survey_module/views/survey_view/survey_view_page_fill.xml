@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="custom_survey_page_fill_header" inherit_id="survey.survey_fill_header">
+
+        <xpath expr="//div[contains(@class, 'o_survey_nav') and contains(@class, 'pt16')]"
+            position="inside">
+            <div class="alert alert-primary mt8" role="alert">
+                <div id="question_timer_place_holder"  t-att-data-survey-props="json.dumps({'survey': survey, 'answer': answer})"></div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

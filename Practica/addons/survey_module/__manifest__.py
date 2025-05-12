@@ -13,25 +13,26 @@
     "views/survey/main_action.xml",
     "views/survey/survey_view.xml",
     "views/survey_question/survey_question_form.xml",
+    # "views/survey_question_answer/form.xml",
+    "views/survey_view/survey_view_page_fill.xml",
     "views/root_menu.xml",
 ],
 
- 'assets': {
-        'web.assets_frontend': [
-            'survey/static/src/js/survey_preload_image_mixin.js',
-            'survey/static/src/js/survey_image_zoomer.js',
-            'survey/static/src/js/survey_form.js',
-            'survey_module/static/src/js/survey_form_true_false.js',
 
-            
-        ],
-    },
 
-"depends":["survey","web","base"],
+"depends":["survey","web","base","web_editor"],
 "category": "Games",
 "installable": True,
 "application": True,
 "auto_install": False,
+
+'assets': {
+    'web.assets_frontend':[
+ 
+        'survey_module/static/src/components/quit_timer.js',
+    ]
+},
+
 
 
 

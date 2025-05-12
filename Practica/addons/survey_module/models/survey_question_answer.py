@@ -5,6 +5,12 @@ import logging
 class SurveyQuestionAnswer(models.Model):
     _inherit = "survey.question.answer"
 
+    next_question_id = fields.Many2one(
+    'survey.question',
+    string="Siguiente pregunta condicional"
+)
+
+
    
     @api.model
     def default_get(self, fields_list):

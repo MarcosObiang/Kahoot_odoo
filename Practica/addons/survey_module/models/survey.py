@@ -8,32 +8,22 @@ class KahootSurvey(models.Model):
 
 
 
-
-    def _get_pages_and_questions_to_show(self):
-        """Filter question_and_pages_ids to include only valid pages and questions.
-
-        Pages are invalid if they have no description. Questions are invalid if
-        they are conditional and all their triggers are invalid.
-        Triggers are invalid if they:
-          - Are a page (not a question)
-          - Have the wrong question type (`simple_choice` and `multiple_choice` are supported)
-          - Are misplaced (positioned after the conditional question)
-          - They are themselves conditional and were found invalid
-        """
+    
+    
+    def _get_session_next_question(self, go_back):
         self.ensure_one()
-        invalid_questions = self.env['survey.question']
-        questions_and_valid_pages = self.question_and_page_ids.filtered(
-            lambda question: not question.is_page or not is_html_empty(question.description))
+        
+        if not self.question_ids or not self.env.user.has_group('survey.group_survey_user'):
+            return
 
-        for question in questions_and_valid_pages.filtered(lambda q: q.triggering_answer_ids).sorted():
-            for trigger in question.triggering_question_ids:
-                if (trigger not in invalid_questions
-                        and not trigger.is_page
-                        and trigger.question_type in ['simple_choice', 'multiple_choice','true_or_false']
-                        and (trigger.sequence < question.sequence
-                             or (trigger.sequence == question.sequence and trigger.id < question.id))):
-                    break
-            else:
-                # No valid trigger found
-                invalid_questions |= question
-        return questions_and_valid_pages - invalid_questions
+        most_voted_answers = self._get_session_most_voted_answers()
+
+        for answer in most_voted_answers:
+            if answer.next_question_id and answer.next_question_id in self.question_ids:
+                return answer.next_question_id
+
+        return self._get_next_page_or_question(
+            most_voted_answers,
+            self.session_question_id.id if self.session_question_id else 0,
+            go_back=go_back
+        )
