@@ -8,20 +8,21 @@ export default class QuestionTimer extends Component {
     </div>`;
 
     setup() {
-        this.state = useState({ counter: 60 });
+        this.state = useState({ counter: 0, Date: new Date(). });
         this.timer = setInterval(() => {
             this.state.counter--;
             console.log(this.state.counter);
             if (this.state.counter === 0) clearInterval(this.timer);
         }, 1000);
 
-        const placeholderElement = document.querySelector('.mi_componente_owl_placeholder');
+        const placeholderElement = document.querySelector('#question_timer_place_holder');
         const surveyPropsJsonString = placeholderElement.dataset.surveyProps;
 
 
         if (surveyPropsJsonString) {
-            const surveyProps = JSON.parse(surveyPropsJsonString); // Convierte la cadena JSON a un objeto JavaScript
-            console.log(surveyProps.surveyTitle); // Acceder a los datos
+            const surveyProps = surveyPropsJsonString; // Convierte la cadena JSON a un objeto JavaScript
+            console.log(surveyProps);
+            console.log(surveyProps.survey) // Acceder a los datos
             // Ahora puedes pasar surveyProps a tu componente OWL
         }
     }
