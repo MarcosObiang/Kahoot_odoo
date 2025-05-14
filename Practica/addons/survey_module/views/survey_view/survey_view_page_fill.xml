@@ -7,6 +7,7 @@
             <div class="alert alert-primary mt8" role="alert">
                 <t t-set="questions_serialized"
                     t-value="survey.question_ids.read(['id', 'title', 'question_type'])" />
+                <t t-set = "user_input_lines_ids" t-value="survey.question_ids"></t>
                 <div id="question_timer_place_holder"
                     t-att-data-survey-props="{'survey': {
            'id': survey.id,

@@ -12,12 +12,18 @@
                     <field name="answer_count" invisible="True"></field>
                     <!-- <field name="answer_true_or_false" invisible="False"></field> -->
 
-                    
 
+                </xpath>
+
+                <!-- Localizamos el tree view de suggested_answer_ids -->
+                <xpath expr="//field[@name='suggested_answer_ids']/tree" position="inside">
+                    <field name="next_question_id" string="Siguiente pregunta"
+                        domain="[('survey_id', '=', parent.survey_id)]" />
                 </xpath>
                 <xpath expr="//field[@name='suggested_answer_ids']" position='attributes'>
                     <attribute name="invisible">question_type not in ['simple_choice',
                         'multiple_choice', 'matrix']</attribute>
+
                     <attribute name="context">{'default_question_id':
                         id,'question_type':question_type,'answer_count': answer_count} </attribute>
                     <attribute name="widget">one2many_list</attribute>

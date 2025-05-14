@@ -3,18 +3,16 @@
 
 
 <odoo>
-    <record id="view_survey_question_answer_form" model="ir.ui.view">
-        <field name="name">survey.question.answer.form</field>
+    <record id="survey_question_answer_view_form_inherit" model="ir.ui.view">
+        <field name="name">survey.question.answer.view.form.inherit</field>
         <field name="model">survey.question.answer</field>
+        <field name="inherit_id" ref="survey.survey_question_answer_view_form"/>
         <field name="arch" type="xml">
-            <form string="Survey Answer">
-                <sheet>
-                    <group>
-                        <field name="question_id"/>
-                        <field name="value"/>
-                    </group>
-                </sheet>
-            </form>
+            <!-- Lo insertamos después del campo value, puedes cambiar la posición -->
+            <xpath expr="//field[@name='value_image']" position="before">
+                <field name="next_question_id"/>
+            </xpath>
         </field>
     </record>
+    
 </odoo>

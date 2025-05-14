@@ -11,6 +11,8 @@ class KahootQuestion(models.Model):
     time_limit=fields.Integer("Time limit", default=0)
     points=fields.Integer("Points", default=0)
     bonus_per_second=fields.Float("Bonus per second", default=0)
+    #conditional_next_question_id = fields.Many2one("survey.question", string="Siguiente pregunta condicional")
+    
  
 
 

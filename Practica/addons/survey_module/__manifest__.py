@@ -13,7 +13,7 @@
     "views/survey/main_action.xml",
     "views/survey/survey_view.xml",
     "views/survey_question/survey_question_form.xml",
-    # "views/survey_question_answer/form.xml",
+    "views/survey_question_answer/form.xml",
     "views/survey_view/survey_view_page_fill.xml",
     "views/root_menu.xml",
 ],
