@@ -21,10 +21,9 @@ export default class QuestionTimer extends Component {
 
 
         if (surveyPropsJsonString) {
-            const surveyProps = surveyPropsJsonString; // Convierte la cadena JSON a un objeto JavaScript
+            const surveyProps = surveyPropsJsonString;
             console.log(surveyProps);
-            console.log(surveyProps.survey) // Acceder a los datos
-            // Ahora puedes pasar surveyProps a tu componente OWL
+            console.log(surveyProps.survey) 
         }
     }
 
